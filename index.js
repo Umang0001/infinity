@@ -1,38 +1,61 @@
+import {slideDown,slideToggle,slideUp} from './accordion.js'
+// console.log(slideDown);
 
-let product_description=document.getElementById("product-description");
-
-let dots=document.getElementsByClassName("dot");
-console.log(dots);
-
-document.body.addEventListener("click",(event)=>{
+let product_description=Array.from(document.getElementsByClassName("content"));
+let dots=Array.from(document.getElementsByClassName("dot"));
+document.getElementsByClassName("dots")[0].addEventListener("click",(event)=>{
     let clickedDot=event.target;
-    console.log(clickedDot);
+    if (clickedDot.name=="dot") {
+        let id=clickedDot.id;
+        product_description.forEach(e=>{
+            e.classList.add("hide");
+            e.classList.remove("show");
+            document.getElementsByClassName(`${id}-content`)[0].classList.remove("hide")
+            document.getElementsByClassName(`${id}-content`)[0].classList.add("show")
+            dots.forEach(dot=>{
+                dot.classList.remove("active")
+                clickedDot.classList.add("active")
+            })
+        })
+    }
 })
 
-// Q60.addEventListener("click",()=>{
-//     // product_description.innerText="Q60 is an SUV connected to your world. Its suite of smart technologies keep you in touch with everyone - and everything - that matters most to you in life and on the road"
+// accordion section
 
-//     let x=Array.from(dots)
+let accordion_wrapper=document.getElementsByClassName("accordion-wrapper")[0];
+let accordionItems=Array.from(document.getElementsByClassName("accordion-item"));
 
-//     x.forEach(dot=>{
-//         console.log(dot);
-//         dot.classList.remove("active")
-//     })
+accordion_wrapper.addEventListener("click",(e)=>{
+    let active_acc=e.target.closest("label");
+    let active_content=active_acc.querySelector(".accordion-content-text");
+    let flag = true;
+
     
-//     Q60.classList.add("active")
-//     // Q60.style.background="#fff"
-//     // QX80.style.background="none"
-// })
-// QX80.addEventListener("click",()=>{
-//     product_description.innerText= "QX80 is an SUV connected to your world. Its suite of smart technologies keep you in touch with everyone - and everything - that matters most to you in life and on the road"
-//     // Q60.style.background="none"
-//     // QX80.style.background="#fff"
-//     let x=Array.from(dots)
-
-//     x.forEach(dot=>{
-//         console.log(dot);
-//         dot.classList.remove("active")
-//     })
     
-//     QX80.classList.add("active")
-// })
+    accordionItems.forEach(item=>{
+        if(item !== active_acc){
+            item.classList.remove("active-acc");
+            slideUp(item.querySelector(".accordion-content-text"),1000);
+        }else if(item === active_acc && item.classList.contains('active-acc')){
+            item.classList.remove("active-acc");
+            slideUp(item.querySelector(".accordion-content-text"),1000);
+        }else{
+            item.classList.add("active-acc");
+            slideDown(item.querySelector(".accordion-content-text"),1000);
+        }
+        
+        // if(item === active_acc && item.classList.contains('active-acc')){
+        //     item.classList.remove("active-acc");
+        //     flag = false;
+        // }
+        
+    })
+    
+    // if(flag){
+        
+    //     active_acc.classList.add("active-acc");
+    //     slideToggle(active_content,1000);
+    // }
+
+    
+})

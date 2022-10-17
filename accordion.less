@@ -1,0 +1,95 @@
+@import "./variables.less";
+
+
+
+.accordion-wrapper {
+    background: @black-color;
+
+    .accordion-item {
+        padding: 39px 13% 0 80px;
+        display: block;
+        cursor: pointer;
+        color: @golden-color;
+
+        &.active-acc {
+            color: @white-color;
+
+            .accordion-section {
+                .icon svg path {
+                    fill: @white-color;
+
+                }
+
+                .title-info {
+                    .icon-wrapper {
+                        .contract-icon {
+                            display: block;
+                        }
+
+                        .expand-icon {
+                            display: none;
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+        .accordion-section {
+            display: flex;
+
+            .icon {
+                font-size: 14px;
+                padding-right: 30px;
+
+
+            }
+
+
+            .title-info {
+                border-bottom: solid #363636;
+                display: flex;
+                align-items: flex-start;
+                padding-bottom: 42px;
+                width: 100%;
+
+
+                .accordion-content-wrapper {
+                    width: 100%;
+
+
+
+
+                }
+
+                .accordion-content-title {
+                    text-transform: uppercase;
+                    font-size: 50px;
+                    line-height: 80px;
+
+                }
+
+                .accordion-content-text {
+                    display: none;
+                    font-size: 25px;
+                    line-height: 30px;
+                }
+
+
+            }
+
+
+
+            .contract-icon {
+                display: none;
+            }
+
+
+        }
+    }
+}
+
+.active {
+    color: @white-color;
+}

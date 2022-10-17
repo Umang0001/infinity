@@ -56,7 +56,17 @@
   box-sizing: border-box;
   margin: 34px 0 66px 0;
   line-height: 30px;
-  transition: all 0.3s ease-in;
+}
+.banner .banner-right-container .description-wrapper .product-description .hide p {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+.banner .banner-right-container .description-wrapper .product-description .show p {
+  height: auto;
+  overflow: unset;
+  opacity: 1;
+  transition: opacity 0.8s ease-in;
 }
 .banner .banner-right-container .description-wrapper .get-offer {
   width: 55%;
