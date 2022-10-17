@@ -75,7 +75,28 @@
                 box-sizing: border-box;
                 margin: 34px 0 66px 0;
                 line-height: 30px;
-                transition: all .3s ease-in;
+
+                .hide {
+                    p {
+
+                        height: 0;
+                        opacity: 0;
+                        overflow: hidden;
+                    }
+                }
+
+                .show {
+                    p {
+
+                        height: auto;
+                        overflow: unset;
+                        opacity: 1;
+                        transition: opacity .8s ease-in;
+                    }
+                }
+
+
+
 
             }
 

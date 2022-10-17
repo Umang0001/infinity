@@ -1,30 +1,40 @@
 "use strict";
 
-var product_description = document.getElementById("product-description");
-var dots = document.getElementsByClassName("dot");
-console.log(dots);
-document.body.addEventListener("click", function (event) {
+var _accordion = require("./accordion.js");
+
+var product_description = Array.from(document.getElementsByClassName("content"));
+var dots = Array.from(document.getElementsByClassName("dot"));
+document.getElementsByClassName("dots")[0].addEventListener("click", function (event) {
   var clickedDot = event.target;
-  console.log(clickedDot);
-}); // Q60.addEventListener("click",()=>{
-//     // product_description.innerText="Q60 is an SUV connected to your world. Its suite of smart technologies keep you in touch with everyone - and everything - that matters most to you in life and on the road"
-//     let x=Array.from(dots)
-//     x.forEach(dot=>{
-//         console.log(dot);
-//         dot.classList.remove("active")
-//     })
-//     Q60.classList.add("active")
-//     // Q60.style.background="#fff"
-//     // QX80.style.background="none"
-// })
-// QX80.addEventListener("click",()=>{
-//     product_description.innerText= "QX80 is an SUV connected to your world. Its suite of smart technologies keep you in touch with everyone - and everything - that matters most to you in life and on the road"
-//     // Q60.style.background="none"
-//     // QX80.style.background="#fff"
-//     let x=Array.from(dots)
-//     x.forEach(dot=>{
-//         console.log(dot);
-//         dot.classList.remove("active")
-//     })
-//     QX80.classList.add("active")
-// })
+
+  if (clickedDot.name == "dot") {
+    var id = clickedDot.id;
+    product_description.forEach(function (e) {
+      e.classList.add("hide");
+      e.classList.remove("show");
+      document.getElementsByClassName("".concat(id, "-content"))[0].classList.remove("hide");
+      document.getElementsByClassName("".concat(id, "-content"))[0].classList.add("show");
+      dots.forEach(function (dot) {
+        dot.classList.remove("active");
+        clickedDot.classList.add("active");
+      });
+    });
+  }
+});
+var accordion_wrapper = document.getElementsByClassName("accordion-wrapper")[0];
+var accordionItems = Array.from(document.getElementsByClassName("accordion-item"));
+accordion_wrapper.addEventListener("click", function (e) {
+  var active_acc = e.target.closest("label");
+  accordionItems.forEach(function (item) {
+    if (item !== active_acc) {
+      item.classList.remove("active-acc");
+      (0, _accordion.slideUp)(item.querySelector(".accordion-content-text"), 1000);
+    } else if (item === active_acc && item.classList.contains('active-acc')) {
+      item.classList.remove("active-acc");
+      (0, _accordion.slideUp)(item.querySelector(".accordion-content-text"), 1000);
+    } else {
+      item.classList.add("active-acc");
+      (0, _accordion.slideDown)(item.querySelector(".accordion-content-text"), 1000);
+    }
+  });
+});

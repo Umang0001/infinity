@@ -1,0 +1,54 @@
+.accordion-wrapper {
+  background: #000;
+}
+.accordion-wrapper .accordion-item {
+  padding: 39px 13% 0 80px;
+  display: block;
+  cursor: pointer;
+  color: #b89f75;
+}
+.accordion-wrapper .accordion-item.active-acc {
+  color: #fff;
+}
+.accordion-wrapper .accordion-item.active-acc .accordion-section .icon svg path {
+  fill: #fff;
+}
+.accordion-wrapper .accordion-item.active-acc .accordion-section .title-info .icon-wrapper .contract-icon {
+  display: block;
+}
+.accordion-wrapper .accordion-item.active-acc .accordion-section .title-info .icon-wrapper .expand-icon {
+  display: none;
+}
+.accordion-wrapper .accordion-item .accordion-section {
+  display: flex;
+}
+.accordion-wrapper .accordion-item .accordion-section .icon {
+  font-size: 14px;
+  padding-right: 30px;
+}
+.accordion-wrapper .accordion-item .accordion-section .title-info {
+  border-bottom: solid #363636;
+  display: flex;
+  align-items: flex-start;
+  padding-bottom: 42px;
+  width: 100%;
+}
+.accordion-wrapper .accordion-item .accordion-section .title-info .accordion-content-wrapper {
+  width: 100%;
+}
+.accordion-wrapper .accordion-item .accordion-section .title-info .accordion-content-title {
+  text-transform: uppercase;
+  font-size: 50px;
+  line-height: 80px;
+}
+.accordion-wrapper .accordion-item .accordion-section .title-info .accordion-content-text {
+  display: none;
+  font-size: 25px;
+  line-height: 30px;
+}
+.accordion-wrapper .accordion-item .accordion-section .contract-icon {
+  display: none;
+}
+.active {
+  color: #fff;
+}
