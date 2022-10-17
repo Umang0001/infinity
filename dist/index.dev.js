@@ -20,14 +20,11 @@ document.getElementsByClassName("dots")[0].addEventListener("click", function (e
       });
     });
   }
-}); // accordion section
-
+});
 var accordion_wrapper = document.getElementsByClassName("accordion-wrapper")[0];
 var accordionItems = Array.from(document.getElementsByClassName("accordion-item"));
 accordion_wrapper.addEventListener("click", function (e) {
   var active_acc = e.target.closest("label");
-  var active_content = active_acc.querySelector(".accordion-content-text");
-  var flag = true;
   accordionItems.forEach(function (item) {
     if (item !== active_acc) {
       item.classList.remove("active-acc");
@@ -38,13 +35,6 @@ accordion_wrapper.addEventListener("click", function (e) {
     } else {
       item.classList.add("active-acc");
       (0, _accordion.slideDown)(item.querySelector(".accordion-content-text"), 1000);
-    } // if(item === active_acc && item.classList.contains('active-acc')){
-    //     item.classList.remove("active-acc");
-    //     flag = false;
-    // }
-
-  }); // if(flag){
-  //     active_acc.classList.add("active-acc");
-  //     slideToggle(active_content,1000);
-  // }
+    }
+  });
 });
