@@ -4,5 +4,7 @@
   margin: 0;
 }
 body {
-  background: #000;
+  color: #000;
+  line-height: 1.42;
+  font-size: 14px;
 }

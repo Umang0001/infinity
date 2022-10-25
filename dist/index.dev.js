@@ -37,4 +37,33 @@ accordion_wrapper.addEventListener("click", function (e) {
       (0, _accordion.slideDown)(item.querySelector(".accordion-content-text"), 1000);
     }
   });
+}); // this section is for carousel
+
+$(document).ready(function () {
+  $('ul.tabs').tabs({
+    swipeable: true,
+    responsiveThreshold: 1920
+  });
+});
+var desktop_tab_section = document.querySelector("#desktop-tab-section");
+var tabs = Array.from(document.getElementsByClassName("desktop-tab"));
+console.log(tabs);
+var car_info_sections = Array.from(document.getElementsByClassName("desktop-info-section"));
+desktop_tab_section.addEventListener("click", function (e) {
+  if (e.target.tagName == "A") {
+    var id = e.target.id;
+    tabs.forEach(function (tab) {
+      tab.classList.remove("active");
+    });
+    e.target.classList.add("active");
+    car_info_sections.forEach(function (section) {
+      section.classList.remove("active");
+    });
+    document.getElementById("".concat(id, "-container")).classList.add("active");
+  }
+});
+var section = document.querySelector(".tab-section");
+section.addEventListener("drag", function (e) {
+  console.log(e.target);
+  console.log(1);
 });

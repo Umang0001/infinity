@@ -43,3 +43,49 @@ accordion_wrapper.addEventListener("click",(e)=>{
    
     
 })
+
+// this section is for carousel
+
+$(document).ready(function(){
+    $('ul.tabs').tabs({
+      swipeable : true,
+      responsiveThreshold : 1920,
+      
+    });
+  });
+
+
+  let desktop_tab_section=document.querySelector("#desktop-tab-section");
+
+  let tabs=Array.from(document.getElementsByClassName("desktop-tab"));
+  console.log(tabs);
+
+  let car_info_sections=Array.from(document.getElementsByClassName("desktop-info-section"));
+
+  
+
+  desktop_tab_section.addEventListener("click",(e)=>{
+
+      
+      if(e.target.tagName=="A"){
+        let id=e.target.id;
+        tabs.forEach(tab=>{
+            tab.classList.remove("active")
+        })
+
+        e.target.classList.add("active");
+        car_info_sections.forEach(section=>{
+            section.classList.remove("active")
+        })
+
+        document.getElementById(`${id}-container`).classList.add("active")
+    }
+  })
+
+
+  let section=document.querySelector(".tab-section");
+
+  section.addEventListener("drag",(e)=>{
+    console.log(e.target);
+    console.log(1);
+  })
